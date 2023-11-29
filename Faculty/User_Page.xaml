@@ -1,0 +1,32 @@
+﻿<Page x:Class="Faculty.User_Page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Faculty"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="User_Page">
+
+    <Grid Background="White">
+        <Label Content="User Page" HorizontalAlignment="Center" Margin="0,13,0,0" VerticalAlignment="Top" FontSize="50"/>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="283,113,0,0" VerticalAlignment="Top" FontSize="30"/>
+        <Label Content="Gender" HorizontalAlignment="Left" Margin="285,175,0,0" VerticalAlignment="Top" FontSize="30"/>
+        <Label Content="Age" HorizontalAlignment="Left" Margin="285,230,0,0" VerticalAlignment="Top" FontSize="30"/>
+        <Label Content="Address" HorizontalAlignment="Left" Margin="268,290,0,0" VerticalAlignment="Top" FontSize="30"/>
+        <TextBox x:Name="Name_txt"  HorizontalAlignment="Left" Margin="400,129,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" Height="27"/>
+        <TextBox  x:Name="Age_txt" HorizontalAlignment="Left" Margin="379,253,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" Height="27"/>
+        <TextBox  x:Name="Address_txt" HorizontalAlignment="Left" Margin="400,302,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200" Height="27"/>
+        <Button x:Name="Add_btn"  Content="Add" HorizontalAlignment="Left" Margin="645,410,0,0" VerticalAlignment="Top" Height="30" Width="97" Click="Add_btn_Click"/>
+        <CheckBox x:Name="Male_Box"  Content="Male" HorizontalAlignment="Left" Margin="429,200,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="Female_Box"  Content="Female" HorizontalAlignment="Left" Margin="529,199,0,0" VerticalAlignment="Top"/>
+        <Label Content="Dep" HorizontalAlignment="Left" Margin="260,371,0,0" VerticalAlignment="Top" FontSize="30"/>
+        <ComboBox x:Name="Combo" Margin="155,354,555,56" Width="90" Height="40">
+            <ComboBoxItem Content="SW"/>
+            <ComboBoxItem Content="CS"/>
+            <ComboBoxItem Content="Network"/>
+            <ComboBoxItem Content="AI"/>
+        </ComboBox>
+        <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="656,255,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Page>
