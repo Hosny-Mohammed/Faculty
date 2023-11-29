@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -30,15 +31,25 @@ namespace Faculty
         {
             User_LogIn user_table = new User_LogIn();
             Admin admin_table = new Admin();
+            
             if(Combo.SelectedIndex ==0)
             {
                 if(UserName_txt.Text != "" || Password_txt.Text != "")
                 {
-                    admin_table.Usernames = UserName_txt.Text;
-                    admin_table.Passwords = Password_txt.Text;
-                    DB.Admins.Add(admin_table);
-                    DB.SaveChanges();
-                    MessageBox.Show("The user is created successfully");
+                    
+                    if (Password_txt.Text.Length > 16 && Regex.IsMatch(Password_txt.Text,@"[!@#$%^&*()_+=\[{\]};:<>|./?,-]"))
+                    {
+                        admin_table.Usernames = UserName_txt.Text;
+                        admin_table.Passwords = Password_txt.Text;
+                        DB.Admins.Add(admin_table);
+                        DB.SaveChanges();
+                        MessageBox.Show("The user is created successfully");
+                    }
+                    else
+                    {
+                        MessageBox.Show("The password don't strong enough");
+                    }
+                    
                 }
                 else
                 {
@@ -48,11 +59,18 @@ namespace Faculty
             {
                 if (UserName_txt.Text != "" || Password_txt.Text != "")
                 {
-                    user_table.Usernames = UserName_txt.Text;
-                    user_table.Passwords = Password_txt.Text;
-                    DB.User_LogIn.Add(user_table);
-                    DB.SaveChanges();
-                    MessageBox.Show("The user is created successfully");
+                    if (Password_txt.Text.Length > 16 && Regex.IsMatch(Password_txt.Text, @"[!@#$%^&*()_+=\[{\]};:<>|./?,-]"))
+                    {
+                        user_table.Usernames = UserName_txt.Text;
+                        user_table.Passwords = Password_txt.Text;
+                        DB.User_LogIn.Add(user_table);
+                        DB.SaveChanges();
+                        MessageBox.Show("The user is created successfully");
+                    }
+                    else
+                    {
+                        MessageBox.Show("The password don't strong enough");
+                    }
                 }
                 else
                 {

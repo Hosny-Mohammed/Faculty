@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -36,10 +37,17 @@ namespace Faculty
                     var user = DB.Admins.FirstOrDefault(x => x.Usernames == UserName_txt.Text);
                     if(user != null)
                     {
-                        user.Passwords = Password_txt.Text;
-                        DB.Admins.AddOrUpdate(user);
-                        DB.SaveChanges();
-                        MessageBox.Show("password is updated successfully");
+                        if (Password_txt.Text.Length > 16 && Regex.IsMatch(Password_txt.Text, @"[!@#$%^&*()_+=\[{\]};:<>|./?,-]"))
+                        {
+                            user.Passwords = Password_txt.Text;
+                            DB.Admins.AddOrUpdate(user);
+                            DB.SaveChanges();
+                            MessageBox.Show("password is updated successfully");
+                        }
+                        else
+                        {
+                            MessageBox.Show("The password don't strong enough");
+                        }
                     }
                     else
                     {
@@ -51,10 +59,17 @@ namespace Faculty
                     var user = DB.User_LogIn.FirstOrDefault(x => x.Usernames == UserName_txt.Text);
                     if (user != null)
                     {
-                        user.Passwords = Password_txt.Text;
-                        DB.User_LogIn.AddOrUpdate(user);
-                        DB.SaveChanges();
-                        MessageBox.Show("password is updated successfully");
+                        if (Password_txt.Text.Length > 16 && Regex.IsMatch(Password_txt.Text, @"[!@#$%^&*()_+=\[{\]};:<>|./?,-]"))
+                        {
+                            user.Passwords = Password_txt.Text;
+                            DB.User_LogIn.AddOrUpdate(user);
+                            DB.SaveChanges();
+                            MessageBox.Show("password is updated successfully");
+                        }
+                        else
+                        {
+                            MessageBox.Show("The password don't strong enough");
+                        }
                     }
                     else
                     {
