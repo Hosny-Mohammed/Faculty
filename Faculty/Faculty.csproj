@@ -90,6 +90,7 @@
     <Compile Include="User_Page.xaml.cs">
       <DependentUpon>User_Page.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ValidationPassword.cs" />
     <Page Include="Admin_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

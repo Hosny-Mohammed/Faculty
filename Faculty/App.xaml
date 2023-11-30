@@ -4,6 +4,16 @@
              xmlns:local="clr-namespace:Faculty"
              StartupUri="LogIn.xaml">
     <Application.Resources>
-         
+        <Style x:Key="buttonStyle" TargetType="Button">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="150"/>
+        </Style>
+        <Style x:Key="lableStyle" TargetType="Label">
+            <Setter Property="Background" Value="Maroon"/>
+            <Setter Property="Height" Value="100" />
+        </Style>
+        <Style x:Key="ComboStyle" TargetType="ComboBox">
+            <Setter Property="Background" Value="Black"/>
+        </Style>
     </Application.Resources>
 </Application>

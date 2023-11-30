@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Faculty;
 
 namespace Faculty
 {
@@ -23,11 +24,11 @@ namespace Faculty
     public partial class ForgetPage : Page
     {
         New_FcultyEntities DB = new New_FcultyEntities();
+        ValidationPassword mm = new ValidationPassword();   
         public ForgetPage()
         {
             InitializeComponent();
         }
-
         private void Forget_btn_Click(object sender, object e)
         {
             if(Combo.SelectedItem != null)
@@ -37,7 +38,7 @@ namespace Faculty
                     var user = DB.Admins.FirstOrDefault(x => x.Usernames == UserName_txt.Text);
                     if(user != null)
                     {
-                        if (Password_txt.Text.Length > 16 && Regex.IsMatch(Password_txt.Text, @"[!@#$%^&*()_+=\[{\]};:<>|./?,-]"))
+                        if (mm.IsValid(Password_txt.Text) && Password_txt.Text.Length > 16)
                         {
                             user.Passwords = Password_txt.Text;
                             DB.Admins.AddOrUpdate(user);
@@ -59,7 +60,7 @@ namespace Faculty
                     var user = DB.User_LogIn.FirstOrDefault(x => x.Usernames == UserName_txt.Text);
                     if (user != null)
                     {
-                        if (Password_txt.Text.Length > 16 && Regex.IsMatch(Password_txt.Text, @"[!@#$%^&*()_+=\[{\]};:<>|./?,-]"))
+                        if (mm.IsValid(Password_txt.Text) && Password_txt.Text.Length > 16)
                         {
                             user.Passwords = Password_txt.Text;
                             DB.User_LogIn.AddOrUpdate(user);
@@ -76,11 +77,10 @@ namespace Faculty
                         MessageBox.Show("This user not found");
                     }
                 }
-                else
-                {
-                    MessageBox.Show("U must select an item");
-                }
-
+            }
+            else
+            {
+                MessageBox.Show("U must select an item");
             }
         }
     }

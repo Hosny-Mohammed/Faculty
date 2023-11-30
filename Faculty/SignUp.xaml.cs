@@ -22,6 +22,7 @@ namespace Faculty
     public partial class SignUp : Page
     {
         New_FcultyEntities DB = new New_FcultyEntities();
+        ValidationPassword mm = new ValidationPassword();
         public SignUp()
         {
             InitializeComponent();
@@ -37,7 +38,7 @@ namespace Faculty
                 if(UserName_txt.Text != "" || Password_txt.Text != "")
                 {
                     
-                    if (Password_txt.Text.Length > 16 && Regex.IsMatch(Password_txt.Text,@"[!@#$%^&*()_+=\[{\]};:<>|./?,-]"))
+                    if (Password_txt.Text.Length > 16 && mm.IsValid(Password_txt.Text))
                     {
                         admin_table.Usernames = UserName_txt.Text;
                         admin_table.Passwords = Password_txt.Text;
@@ -59,7 +60,7 @@ namespace Faculty
             {
                 if (UserName_txt.Text != "" || Password_txt.Text != "")
                 {
-                    if (Password_txt.Text.Length > 16 && Regex.IsMatch(Password_txt.Text, @"[!@#$%^&*()_+=\[{\]};:<>|./?,-]"))
+                    if (Password_txt.Text.Length > 16 && mm.IsValid(Password_txt.Text))
                     {
                         user_table.Usernames = UserName_txt.Text;
                         user_table.Passwords = Password_txt.Text;
@@ -76,6 +77,10 @@ namespace Faculty
                 {
                     MessageBox.Show("U must enter data");
                 }
+            }
+            else
+            {
+                MessageBox.Show("U must select an item");
             }
         }
     }

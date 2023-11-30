@@ -11,11 +11,11 @@
     <Grid Background="White">
         <Label Content="Forget Password" HorizontalAlignment="Center" Margin="0,14,0,0" VerticalAlignment="Top" Height="64" Width="314" FontSize="40"/>
         <Label Content="User Name" HorizontalAlignment="Left" Margin="235,168,0,0" VerticalAlignment="Top" Height="37" Width="114" FontSize="20"/>
-        <Label Content="New Password" HorizontalAlignment="Left" Margin="212,225,0,0" VerticalAlignment="Top" Height="37" Width="137" FontSize="20"/>
+        <Label Style="{StaticResource lableStyle}" Content="New Password" HorizontalAlignment="Left" Margin="212,225,0,0" VerticalAlignment="Top" Height="37" Width="137" FontSize="20"/>
         <TextBox x:Name="UserName_txt" HorizontalAlignment="Left" Margin="354,178,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="169" Height="27"/>
         <TextBox x:Name="Password_txt" HorizontalAlignment="Left" Margin="354,230,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="169" Height="27"/>
-        <Button x:Name="Forget_btn"  Content="Update" HorizontalAlignment="Left" Margin="354,346,0,0" VerticalAlignment="Top" Height="31" Width="120" ButtonBase.Click="Forget_btn_Click" />
-        <ComboBox x:Name="Combo" Margin="611,152,99,258" Width="90" Height="40">
+        <Button Style="{StaticResource buttonStyle}" x:Name="Forget_btn"  Content="Update" HorizontalAlignment="Left" Margin="354,346,0,0" VerticalAlignment="Top" Height="31" Width="120" ButtonBase.Click="Forget_btn_Click" />
+        <ComboBox x:Name="Combo" Margin="611,152,99,258" Width="90" Height="40" Style="{StaticResource ComboStyle}">
             <ComboBoxItem Content="Admin"/>
             <ComboBoxItem Content="User"/>
         </ComboBox>
