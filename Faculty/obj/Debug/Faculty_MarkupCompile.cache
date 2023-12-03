@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-H:\Faculty\Faculty\obj\Debug\
+C:\Users\IT\Desktop\Faculty v2\Faculty\obj\Debug\
 Faculty
 none
 false
 DEBUG;TRACE
-H:\Faculty\Faculty\App.xaml
+C:\Users\IT\Desktop\Faculty v2\Faculty\App.xaml
 61157697392
 2-1957146511
 171916193135
-181086105075
+182053538357
 Admin_Page.xaml;ForgetPage.xaml;LogIn.xaml;MainWindow.xaml;SignUp.xaml;User_Page.xaml;
 
 False
