@@ -18,12 +18,9 @@ ALTER TABLE Students ALTER COLUMN Genders nvarchar(150)  NULL
 
 insert into Students
 values
-('Victoria','Female',16,'Poland','CS');
+('Hosny','male',16,'Egypt','CS');
 create table User_LogIn(
 	Usernames nvarchar(150) primary key not null,
 	Passwords nvarchar(150) not null
 );
-insert into User_LogIn
-values
-('Victoria','Vii');
 Select * from Students
